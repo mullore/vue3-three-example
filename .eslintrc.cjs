@@ -77,11 +77,18 @@ module.exports = {
     //     math: 'always',
     //   },
     // ],
+    // 'vue/first-attribute-linebreak': [
+    //   'error',
+    //   {
+    //     singleline: 'ignore',
+    //     multiline: 'below',
+    //   },
+    // ],
     'vue/max-attributes-per-line': [
       'error',
       {
         singleline: {
-          max: 10,
+          max: 1,
         },
         multiline: {
           max: 1,

@@ -1,25 +1,39 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/Index',
+    redirect: '/blackhole',
+  },
+  {
+    path: '/',
+    component: () => import('@/views/Layout.vue'),
+    children: [
+      {
+        path: 'blackhole',
+        name: 'blackhole',
+        meta: { title: '首页' },
+        component: () => import('@/blackhole/Index.vue'),
+      },
+    ],
+  },
+  // {
+  //   path: '/blackhole',
+  //   name: 'blackhole',
+  //   meta: { title: '首页' },
+  //   component: () => import('@/blackhole/Index.vue'),
+  // },
+  {
+    path: '/spacetime',
+    name: 'spacetime',
+    component: () => import('@/views/spacetime.vue'),
   },
 
-  // {
-  //   path: '/Hello',
-  //   name: 'Hello',
-  //   component: () => import('@/components/Hello.vue'),
-  // },
-  // {
-  //   path: '/HelloWorld',
-  //   name: 'HelloWorld',
-  //   component: () => import('@/components/HelloWorld.vue'),
-  // },
-  // {
-  //     path: '/Index',
-  //     name: 'Index',
-  //     component: () => import('@/components/other/PointsBillboards.vue')
-  // },
+  {
+    path: '/loading',
+    name: 'loading',
+    component: () => import('@/components/common/Loading.vue'),
+  },
 ];
 
 const router = createRouter({
@@ -34,4 +48,7 @@ router.beforeEach((to, from, next) => {
   }
 });
 
+router.afterEach(() => {
+  // console.log('路由切花');
+});
 export default router;

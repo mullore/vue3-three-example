@@ -6,11 +6,13 @@ import glsl from 'vite-plugin-glsl';
 import viteEslint from 'vite-plugin-eslint';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import path from 'path';
+
 const useDevMode = true;
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: 'http://localhost:8080/',
+  // base: '/dist/',
+
   plugins: [
     // useDevMode = true 时不开启热更新
     vue(),
@@ -21,6 +23,7 @@ export default defineConfig({
       useDevMode,
     }),
   ],
+
   resolve: {
     extensions: ['.ts', '.mjs', '.js', '.jsx', '.tsx', '.json', '.vue'],
     // 别名配置
@@ -34,6 +37,7 @@ export default defineConfig({
     },
   },
   server: {
+    // ssr: true, // 启用服务器端渲染
     port: 8080,
     cors: true,
     origin: 'http://localhost:8080',

@@ -15,3 +15,5 @@ dist
 prettier.config.js
 /src/mock/*
 .env.d.ts
+
+/examples
